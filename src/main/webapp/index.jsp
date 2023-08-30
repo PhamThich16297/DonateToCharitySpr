@@ -1,6 +1,2 @@
-<html>
-<body>
-<h2>Hello World!</h2>
-<h3>This is web site "Donate to Charity" use Spring MVC</h3>
-</body>
-</html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:redirect url="/trang-chu/"/>
