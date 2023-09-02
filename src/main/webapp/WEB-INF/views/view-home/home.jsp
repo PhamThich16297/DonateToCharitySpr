@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<%@ page import="com.thichpham.dtc.sercurity.SecurityUtil"  %>
 
 <!DOCTYPE html>
 <html>
@@ -57,7 +59,7 @@
 							href="${pageContext.request.contextPath}/trang-chu/dang-ky">
 								Đăng Ký </a></li>
 						<li class="nav-item mx-auto"><a class="nav-link"
-							href="${pageContext.request.contextPath}/trang-chu/dang-nhap">
+							href="${pageContext.request.contextPath}/dang-nhap">
 								Đăng Nhập </a></li>
 					</ul>
 				</c:if>
@@ -65,7 +67,7 @@
 				<c:if test="${pageContext.request.userPrincipal.name != null}">
 					<div class="d-flex ms-auto">
 						<p class="m-auto" style="color: white;">
-							<%-- <%=SecurityUtil.getPrincipal().getFullName()%> --%>
+							<%=SecurityUtil.getPrincipal().getFullName()%>
 						</p>
 						<ul class="navbar-nav m-auto mb-lg-0">
 							<li class="nav-item dropdown"><a
@@ -75,11 +77,11 @@
 							</a>
 								<ul class="dropdown-menu dropdown-menu-end"
 									aria-labelledby="navbarDropdown">
-									<!-- <security:authorize access="hasRole('ADMIN')"> -->
+									<security:authorize access="hasRole('ADMIN')">
 									<li><a class="dropdown-item"
-										href="${pageContext.request.contextPath}/admin/"> Quản Lí
+										href="${pageContext.request.contextPath}/admin/admin-home"> Quản Lí
 									</a></li>
-									<!-- </security:authorize> -->
+									</security:authorize>
 
 									<li><a class="dropdown-item" href="#">Xem thông tin</a></li>
 									<li><a class="dropdown-item" href="#">Thay đổi MK</a></li>
@@ -201,6 +203,7 @@
 	
 	<!-- Footer -->
 	<h1>FOOTER</h1>
+	<a href="${pageContext.request.contextPath}/trang-chu/test-view-admin">Test View Admin</a>
 	<!-- End Footer -->
 
 </body>
